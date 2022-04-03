@@ -9,6 +9,8 @@ public class FinancialResult {
     @Excel(name = "科目")
     private String item;
 
+    @Excel(name = "2014")
+    private String value14;
     @Excel(name = "2015")
     private String value15;
     @Excel(name = "2016")
@@ -30,6 +32,14 @@ public class FinancialResult {
 
     public void setItem(String item) {
         this.item = item;
+    }
+
+    public String getValue14() {
+        return value14;
+    }
+
+    public void setValue14(String value14) {
+        this.value14 = value14;
     }
 
     public String getValue15() {

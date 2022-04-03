@@ -381,13 +381,13 @@ public abstract class BaseExportServer extends ExportCommonServer {
                     // 调整每一列宽度
                     sheet.autoSizeColumn((short) i);
                     // 解决自动设置列宽中文失效的问题
-                    sheet.setColumnWidth(i, sheet.getColumnWidth(j) * 17 / 10);
+                    sheet.setColumnWidth(i, sheet.getColumnWidth(j)*2);
                 }
             } else {
                 // 调整每一列宽度
                 sheet.autoSizeColumn((short) i);
                 // 解决自动设置列宽中文失效的问题
-                sheet.setColumnWidth(i, sheet.getColumnWidth(i) * 17 / 10);
+                sheet.setColumnWidth(i, sheet.getColumnWidth(i)*2);
             }
         }
     }
