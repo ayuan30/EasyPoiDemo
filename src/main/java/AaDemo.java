@@ -17,19 +17,28 @@ import java.util.Map;
 public class AaDemo {
 
     static String path = "../Excel/";
-    //    static String outFileName="药店行业";
-//    static String outFileName="氢能";
-    static String outFileName = "白酒";
-    //    public static String[] companyArr=new String[]{"大参林","益丰","老百姓","一心堂"};
-//    public static String[] companyArr=new String[]{"蒙娜丽莎"};
-//    public static String[] companyArr=new String[]{"隆基","阳光电源"};
+    static String outFileName = "持仓";
+//    static String outFileName = "调味品";
+//    static String outFileName = "瓷砖";
+    //    static String outFileName = "药店";
+    //    static String outFileName="氢能";
+//    static String outFileName = "白酒";
+    public static String[] excelNameArr = new String[]{"002918","603939","600887","600690","002415","002508","002475","002372","600031","600585","601318","000001"};
+    public static String[] companyArr = new String[]{"蒙娜丽莎","益丰","伊利","海尔","海康","老板","立讯","伟星","三一","海螺","平安","平安银行"};
+//    public static String[] excelNameArr = new String[]{"603288","603027","600872"};
+//    public static String[] companyArr = new String[]{"海天味业","千禾味业","中炬高新"};
+//    public static String[] excelNameArr = new String[]{"002918"};
+//    public static String[] companyArr = new String[]{"蒙娜丽莎"};
+//    public static String[] excelNameArr = new String[]{"603233", "603939", "603883", "002727"};
+//    public static String[] companyArr = new String[]{"大参林", "益丰", "老百姓", "一心堂"};
+    //    public static String[] companyArr=new String[]{"隆基","阳光电源"};
 //    public static String[] excelNameArr = new String[]{"600519_debt_year", "000858_debt_year", "002304_debt_year"};
-    public static String[] excelNameArr = new String[]{"600519", "000858", "002304"};
-    public static String[] companyArr = new String[]{"茅台", "五粮液", "洋河"};
+//    public static String[] excelNameArr = new String[]{"600519", "000858", "002304"};
+//    public static String[] companyArr = new String[]{"茅台", "五粮液", "洋河"};
     public static Map<String, Map<String, String[]>> assetsDebtMaps = new HashMap<>();
     //    public static String[] itemArr=new String[]{"总资产增长率","经营活动有关资产占比","总负债占比","应付预收应收预付差额","应收账款合同资产占比","固定资产占比","投资类资产占比","存货占比","商誉占比","营业收入增长率","毛利率","期间费率毛利率占比","销售费用率","主营利润率","主营利润营业利润","净利润现金比率","ROE","归母净利润增长率","增长潜质率"};
 //    public static String[] itemArr = new String[]{"总资产增长率", "总负债占比", "准货币差额","应付差额","应收账款合同资产占比","固定资产占比","存货占比"};
-    public static String[] itemArr = new String[]{"总资产增长率", "总负债占比", "准货币差额","应付差额","应收账款合同资产占比","固定资产占比","存货占比","商誉占比","营业收入增长率", "毛利率", "期间费率毛利率占比", "销售费用率", "主营利润率","净利润现金比率","ROE","增长潜质率"};
+    public static String[] itemArr = new String[]{"总资产增长率", "总负债占比", "准货币差额", "应付差额", "应收账款合同资产占比", "固定资产占比", "存货占比", "商誉占比", "营业收入增长率", "毛利率", "期间费率毛利率占比", "销售费用率", "主营利润率", "净利润现金比率", "ROE", "增长潜质率"};
 
     public static void exportExcel() throws Exception {
 
@@ -83,7 +92,7 @@ public class AaDemo {
         for (int i = 0; i < companyArr.length; i++) {
 
             //            好价格
-            ImportExcelUtil.goodPrice(assetsDebtMap,companyArr[i]);
+            ImportExcelUtil.goodPrice3(assetsDebtMap, companyArr[i]);
         }
         //            总资产规模、总资产增长率
         ImportExcelUtil.totalAssetsIncreaseRate(assetsDebtMap);
@@ -156,16 +165,23 @@ public class AaDemo {
         for (String company :
                 companyArr) {
 
-            String[] goodPriceArr=assetsDebtMaps.get(company).get(company+"好价格");
-            GoodPrice goodPrice=new GoodPrice();
+            String[] goodPriceArr = assetsDebtMaps.get(company).get(company + "好价格");
+            GoodPrice goodPrice = new GoodPrice();
             goodPrice.setCompanyName(company);
-            goodPrice.setOrgRate(goodPriceArr[0]);
-            goodPrice.setAvgRate(goodPriceArr[1]);
-            goodPrice.setTtm(goodPriceArr[2]);
-            goodPrice.setOrgPrice(goodPriceArr[3]);
-            goodPrice.setAvgPrice(goodPriceArr[4]);
-            goodPrice.setCurrentPrice(goodPriceArr[5]);
-            goodPrice.setCurrentPrice2(goodPriceArr[6]);
+            NumberFormat nformat2 = NumberFormat.getNumberInstance();
+            nformat2.setMaximumFractionDigits(0);
+
+            NumberFormat nformat = NumberFormat.getPercentInstance();
+            nformat.setMaximumFractionDigits(2);
+
+            goodPrice.setMyGoodPrice(nformat2.format(Double.valueOf(goodPriceArr[0])));
+            goodPrice.setMyGoodPrice2(nformat2.format(Double.valueOf(goodPriceArr[1])));
+            goodPrice.setMyGoodPrice3Y(nformat2.format(Double.valueOf(goodPriceArr[2])));
+            goodPrice.setMyGoodPrice3Y2(nformat2.format(Double.valueOf(goodPriceArr[3])));
+            goodPrice.setCutNetProfit(nformat2.format(Double.valueOf(goodPriceArr[4])/100000000));
+            goodPrice.setCutNetProfitRate(goodPriceArr[5]);
+            goodPrice.setMyRate(nformat.format(Double.valueOf(goodPriceArr[6])));
+            goodPrice.setPe(goodPriceArr[7]);
 
             dataList.add(goodPrice);
         }
@@ -327,7 +343,7 @@ public class AaDemo {
                 setItemValue(length2, i, result2, value2);
             }
             resultList.add(result2);
-        }else if("ROE".equals(item)) {
+        } else if ("ROE".equals(item)) {
             FinancialResult result2 = new FinancialResult();
             String[] valueArr2 = assetsDebtMap.get("归母净利润增长率");
             result2.setItem("归母净利润增长率");

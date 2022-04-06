@@ -7,35 +7,37 @@ public class GoodPrice {
     @Excel(name = "公司名")
     private String companyName;
 
-    @Excel(name = "机构预测增长")
-    private String orgRate;
-    @Excel(name = "平均增长")
-    private String avgRate;
+    @Excel(name = "我的好价格9")
+    private String myGoodPrice2;
+    @Excel(name = "我的好价格9（看3年）")
+    private String myGoodPrice3Y2;
+    @Excel(name = "我的好价格7")
+    private String myGoodPrice;
+    @Excel(name = "我的好价格7（看3年）")
+    private String myGoodPrice3Y;
+    @Excel(name = "扣非净利润")
+    private String cutNetProfit;
+    @Excel(name = "扣非净利润增长率")
+    private String cutNetProfitRate;
+    @Excel(name = "我的增长率")
+    private String myRate;
     @Excel(name = "市盈率")
-    private String ttm;
-    @Excel(name = "机构预测好价格")
-    private String orgPrice;
-    @Excel(name = "平均增长好价格")
-    private String avgPrice;
-    @Excel(name = "当年平均增长好价格")
-    private String currentPrice;
-    @Excel(name = "当年机构预测好价格")
-    private String currentPrice2;
+    private String pe;
 
-    public String getCurrentPrice2() {
-        return currentPrice2;
+    public String getMyGoodPrice3Y2() {
+        return myGoodPrice3Y2;
     }
 
-    public void setCurrentPrice2(String currentPrice2) {
-        this.currentPrice2 = currentPrice2;
+    public void setMyGoodPrice3Y2(String myGoodPrice3Y2) {
+        this.myGoodPrice3Y2 = myGoodPrice3Y2;
     }
 
-    public String getCurrentPrice() {
-        return currentPrice;
+    public String getMyGoodPrice3Y() {
+        return myGoodPrice3Y;
     }
 
-    public void setCurrentPrice(String currentPrice) {
-        this.currentPrice = currentPrice;
+    public void setMyGoodPrice3Y(String myGoodPrice3Y) {
+        this.myGoodPrice3Y = myGoodPrice3Y;
     }
 
     public String getCompanyName() {
@@ -46,43 +48,51 @@ public class GoodPrice {
         this.companyName = companyName;
     }
 
-    public String getOrgRate() {
-        return orgRate;
+    public String getMyGoodPrice() {
+        return myGoodPrice;
     }
 
-    public void setOrgRate(String orgRate) {
-        this.orgRate = orgRate;
+    public void setMyGoodPrice(String myGoodPrice) {
+        this.myGoodPrice = myGoodPrice;
     }
 
-    public String getAvgRate() {
-        return avgRate;
+    public String getMyGoodPrice2() {
+        return myGoodPrice2;
     }
 
-    public void setAvgRate(String avgRate) {
-        this.avgRate = avgRate;
+    public void setMyGoodPrice2(String myGoodPrice2) {
+        this.myGoodPrice2 = myGoodPrice2;
     }
 
-    public String getTtm() {
-        return ttm;
+    public String getCutNetProfit() {
+        return cutNetProfit;
     }
 
-    public void setTtm(String ttm) {
-        this.ttm = ttm;
+    public void setCutNetProfit(String cutNetProfit) {
+        this.cutNetProfit = cutNetProfit;
     }
 
-    public String getOrgPrice() {
-        return orgPrice;
+    public String getCutNetProfitRate() {
+        return cutNetProfitRate;
     }
 
-    public void setOrgPrice(String orgPrice) {
-        this.orgPrice = orgPrice;
+    public void setCutNetProfitRate(String cutNetProfitRate) {
+        this.cutNetProfitRate = cutNetProfitRate;
     }
 
-    public String getAvgPrice() {
-        return avgPrice;
+    public String getMyRate() {
+        return myRate;
     }
 
-    public void setAvgPrice(String avgPrice) {
-        this.avgPrice = avgPrice;
+    public void setMyRate(String myRate) {
+        this.myRate = myRate;
+    }
+
+    public String getPe() {
+        return pe;
+    }
+
+    public void setPe(String pe) {
+        this.pe = pe;
     }
 }
