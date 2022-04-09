@@ -514,8 +514,6 @@ public class ImportExcelUtil {
      * @return
      * @throws Exception
      */
-    static int endCol = 8;
-
     public static Map<String, String[]> parseExcel(InputStream in, String fileName) throws Exception {
         // 根据文件名来创建Excel工作薄
         Workbook work = getWorkbook(in, fileName);
@@ -531,6 +529,11 @@ public class ImportExcelUtil {
             sheet = work.getSheetAt(i);
             if (sheet == null) {
                 continue;
+            }
+
+            int endCol=7;
+            if(2021==sheet.getRow(1).getCell(1).getNumericCellValue()){
+                endCol=8;
             }
 
             // 遍历当前sheet中的所有行

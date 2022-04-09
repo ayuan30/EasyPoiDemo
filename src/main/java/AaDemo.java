@@ -17,21 +17,22 @@ import java.util.Map;
 public class AaDemo {
 
     static String path = "../Excel/";
-    static String outFileName = "持仓";
+    static String outFileName = "氢能";
+//        static String outFileName = "持仓";
 //    static String outFileName = "调味品";
 //    static String outFileName = "瓷砖";
     //    static String outFileName = "药店";
-    //    static String outFileName="氢能";
 //    static String outFileName = "白酒";
-    public static String[] excelNameArr = new String[]{"002918","603939","600887","600690","002415","002508","002475","002372","600031","600585","601318","000001"};
-    public static String[] companyArr = new String[]{"蒙娜丽莎","益丰","伊利","海尔","海康","老板","立讯","伟星","三一","海螺","平安","平安银行"};
+    public static String[] excelNameArr = new String[]{"601012", "300274", "600028", "600989", "601615", "601857", "000039", "002639", "000723", "002080", "600860", "000338", "600066", "601633", "600166"};
+    public static String[] companyArr = new String[]{"隆基", "阳光电源", "中国石化", "宝丰能源", "明阳智能", "中国石油", "中集集团", "雪人股份", "美锦能源", "中材科技", "京城股份", "潍柴动力", "宇通客车", "长城汽车", "福田汽车"};
+//        public static String[] excelNameArr = new String[]{"002918","603939","600887","600690","002415","002508","002475","002372","600031","600585","601318","000001"};
+//    public static String[] companyArr = new String[]{"蒙娜丽莎","益丰","伊利","海尔","海康","老板","立讯","伟星","三一","海螺","平安","平安银行"};
 //    public static String[] excelNameArr = new String[]{"603288","603027","600872"};
 //    public static String[] companyArr = new String[]{"海天味业","千禾味业","中炬高新"};
 //    public static String[] excelNameArr = new String[]{"002918"};
 //    public static String[] companyArr = new String[]{"蒙娜丽莎"};
 //    public static String[] excelNameArr = new String[]{"603233", "603939", "603883", "002727"};
 //    public static String[] companyArr = new String[]{"大参林", "益丰", "老百姓", "一心堂"};
-    //    public static String[] companyArr=new String[]{"隆基","阳光电源"};
 //    public static String[] excelNameArr = new String[]{"600519_debt_year", "000858_debt_year", "002304_debt_year"};
 //    public static String[] excelNameArr = new String[]{"600519", "000858", "002304"};
 //    public static String[] companyArr = new String[]{"茅台", "五粮液", "洋河"};
@@ -178,7 +179,7 @@ public class AaDemo {
             goodPrice.setMyGoodPrice2(nformat2.format(Double.valueOf(goodPriceArr[1])));
             goodPrice.setMyGoodPrice3Y(nformat2.format(Double.valueOf(goodPriceArr[2])));
             goodPrice.setMyGoodPrice3Y2(nformat2.format(Double.valueOf(goodPriceArr[3])));
-            goodPrice.setCutNetProfit(nformat2.format(Double.valueOf(goodPriceArr[4])/100000000));
+            goodPrice.setCutNetProfit(nformat2.format(Double.valueOf(goodPriceArr[4]) / 100000000));
             goodPrice.setCutNetProfitRate(goodPriceArr[5]);
             goodPrice.setMyRate(nformat.format(Double.valueOf(goodPriceArr[6])));
             goodPrice.setPe(goodPriceArr[7]);
